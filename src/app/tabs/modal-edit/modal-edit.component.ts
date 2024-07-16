@@ -54,14 +54,14 @@ export class ModalEditComponent implements OnInit {
     });
   }
 
-  async presentToast(message: string, color: string) {
-    const toast = await this.toastController.create({
-      message: message,
-      duration: 2000,
-      color: color,
-    });
-    toast.present();
-  }
+  // async presentToast(message: string, color: string) {
+  //   const toast = await this.toastController.create({
+  //     message: message,
+  //     duration: 2000,
+  //     color: color,
+  //   });
+  //   toast.present();
+  // }
 
   confirm() {
     let request = {
@@ -78,17 +78,17 @@ export class ModalEditComponent implements OnInit {
       this.productService.editProduct(request).subscribe(
         (item) => {
           console.log(item);
-          this.presentToast('Producto actualizado exitosamente', 'success');
+          // this.presentToast('Producto actualizado exitosamente', 'success');
           this.modalCtrl.dismiss('confirm');
         },
         (error) => {
           console.log(error);
-          this.presentToast('Error al actualizar el producto', 'danger');
+          // this.presentToast('Error al actualizar el producto', 'danger');
         }
       );
     } catch (error) {
       console.log(error);
-      this.presentToast('Un error ha ocurrido', 'danger');
+      // this.presentToast('Un error ha ocurrido', 'danger');
     }
   }
 
