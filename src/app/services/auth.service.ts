@@ -10,6 +10,6 @@ export class AuthService {
   constructor(private auth:AngularFireAuth) { }
 
   login(user:any){
-    return signInWithEmailAndPassword(getAuth(), user.email, user.password)
+    return signInWithEmailAndPassword(getAuth(),user.email,user.password)
   }
 }
