@@ -7,7 +7,7 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 })
 export class AuthService {
 
-  constructor(private auth:AngularFireAuth) { }
+  constructor() { }
 
   login(user:any){
     return signInWithEmailAndPassword(getAuth(), user.email, user.password)

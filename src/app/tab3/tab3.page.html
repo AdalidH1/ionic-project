@@ -14,5 +14,23 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <form [formGroup]="editForm" (ngSubmit)="login()">
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+    <!-- <div *ngIf="editForm.get('email').invalid && editForm.get('email').touched">
+      <p>Email is required</p>
+    </div> -->
+
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <!-- <div *ngIf="editForm.get('password').invalid && editForm.get('password').touched">
+      <p>Password is required</p>
+    </div> -->
+
+    <ion-button type="submit" [disabled]="editForm.invalid">Login</ion-button>
+  </form>
 </ion-content>
