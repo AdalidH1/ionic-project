@@ -39,6 +39,17 @@ export class PhotoService {
 
   async getImages() {
     const storage = getStorage()
+    const imagesRef = ref(storage, ''); // Ref a la raíz o un directorio específico
+
+    listAll(imagesRef).then(async (result) => {
+      for (let itemRef of result.items) {
+        const url = await getDownloadURL(itemRef);
+        this.photos.push(url);
+      }
+    }).catch((error) => {
+      console.log('Error loading images from Firebase Storage:', error);
+    });
+  
   }
 
 }
